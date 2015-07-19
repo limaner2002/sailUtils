@@ -1,0 +1,5 @@
+lit := x | lit binOp lit
+binOp := arOp | compOp
+arOp := & | + | - | * | / | % | ^
+compOp := < | > | <= | >= | <> | =
+var := name | ns!name
