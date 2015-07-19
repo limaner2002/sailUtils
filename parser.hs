@@ -1,4 +1,4 @@
-import Control.Monad
+-- import Control.Monad
 import Text.ParserCombinators.Parsec
 import Text.ParserCombinators.Parsec.Expr
 import Text.ParserCombinators.Parsec.Language
@@ -129,8 +129,8 @@ bOperators = [ [Prefix (reservedOp "not" >> return (Not ))]
              ]
 
 aTerm = parens aExpression
-     <|> liftM Var identifier
-     <|> liftM IntConst integer
+     <|> fmap Var identifier
+     <|> fmap IntConst integer
 
 bTerm = parens bExpression
      <|> (reserved "true" >> return (BoolConst True))
